@@ -14,5 +14,75 @@
       "https://app.saracroche.org/storage/fr-operators-block.jsonl",
       "https://app.saracroche.org/storage/fr-collaborative-block.jsonl"
     ]
+  },
+  {
+    "id": "es-telemarketing",
+    "country": "ES",
+    "name": "Spanish commercial calls (400)",
+    "description": "Every commercial call must come from a 400 number (Real Decreto, BOE-A-2026-8409); fully required from October 2026.",
+    "attribution": "BOE",
+    "attribution_url": "https://www.boe.es/diario_boe/txt.php?id=BOE-A-2026-8409",
+    "license": "Public regulation",
+    "country_code": "34",
+    "trunk_prefix": "",
+    "urls": [
+      "https://raw.githubusercontent.com/SpecSierra/phonehook-sources/master/blocklists/es-telemarketing.jsonl"
+    ]
+  },
+  {
+    "id": "sk-telemarketing",
+    "country": "SK",
+    "name": "Slovak direct marketing (0888)",
+    "description": "Direct-marketing calls must use 0888 numbers (Act 452/2021, §116(12)).",
+    "attribution": "Úrad pre reguláciu elektronických komunikácií",
+    "attribution_url": "https://teleoff.gov.sk",
+    "license": "Public regulation",
+    "country_code": "421",
+    "trunk_prefix": "0",
+    "urls": [
+      "https://raw.githubusercontent.com/SpecSierra/phonehook-sources/master/blocklists/sk-telemarketing.jsonl"
+    ]
+  },
+  {
+    "id": "it-telemarketing",
+    "country": "IT",
+    "name": "Italian telemarketing (0843, 0844)",
+    "description": "Ranges reserved by AGCOM for sales calls (0844) and surveys (0843). Their use is optional, so only part of the telemarketing is caught.",
+    "attribution": "AGCOM delibera 156/18/CIR",
+    "attribution_url": "https://www.agcom.it/sites/default/files/migration/delibera/Delibera%20156-18-CIR.pdf",
+    "license": "Public regulation",
+    "country_code": "39",
+    "trunk_prefix": "",
+    "urls": [
+      "https://raw.githubusercontent.com/SpecSierra/phonehook-sources/master/blocklists/it-telemarketing.jsonl"
+    ]
+  },
+  {
+    "id": "cl-telemarketing",
+    "country": "CL",
+    "name": "Chilean commercial calls (809)",
+    "description": "Unsolicited mass and commercial calls must use the 809 prefix (SUBTEL, since August 2025). 600 and 702 numbers are not blocked.",
+    "attribution": "SUBTEL",
+    "attribution_url": "https://www.subtel.gob.cl/desde-este-miercoles-las-llamadas-comerciales-y-masivas-deberan-llevar-los-prefijos-600-y-809-para-su-identificacion/",
+    "license": "Public regulation",
+    "country_code": "56",
+    "trunk_prefix": "",
+    "urls": [
+      "https://raw.githubusercontent.com/SpecSierra/phonehook-sources/master/blocklists/cl-telemarketing.jsonl"
+    ]
+  },
+  {
+    "id": "in-telemarketing",
+    "country": "IN",
+    "name": "Indian promotional calls (140)",
+    "description": "Promotional calls must come from 140 numbers (TRAI, 2025). 1600 service numbers are not blocked.",
+    "attribution": "TRAI / PIB",
+    "attribution_url": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2102413",
+    "license": "Public regulation",
+    "country_code": "91",
+    "trunk_prefix": "",
+    "urls": [
+      "https://raw.githubusercontent.com/SpecSierra/phonehook-sources/master/blocklists/in-telemarketing.jsonl"
+    ]
   }
 ]
