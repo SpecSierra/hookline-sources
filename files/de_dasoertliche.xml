@@ -2,15 +2,15 @@
   <meta>
     <name>Das Örtliche</name>
     <country>DE</country>
-    <revision>3</revision>
+    <revision>4</revision>
     <description>Phone number directory</description>
     <icon>http://wscont1.apps.microsoft.com/winstore/1x/c9f5864f-8a35-40d0-9fc5-e3d250f208da/Icon.27818.png</icon>
     <link>http://www.dasoertliche.de/</link>
   </meta>
   <set id="root" name="result">
     <set id="0996355077251792" name="telnr" paramoutput="true" value="${telnr}" decode="URLEncode" />
-    <set id="07423824763391167" name="#search" url="http://www3.dasoertliche.de/Controller?book=876&amp;zvo_ok=1&amp;ciid=&amp;district=&amp;quarter=&amp;kgs=&amp;buab=&amp;plz=&amp;zbuab=&amp;quarterfilter=&amp;form_name=search_inv&amp;buc=876&amp;kgs=&amp;buab=&amp;zbuab=&amp;page=5&amp;context=4&amp;action=43&amp;ph=${telnr}&amp;image=Finden" requestfields="Header" requestvalue="User-Agent:Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36" encoding="windows-1252">
-      <set id="09555685874074697" name="field" value="/&lt;a[^&gt;]*class=&quot;name[^&gt;]*&gt;(.*?)&lt;/a&gt;/">
+    <set id="07423824763391167" name="#search" url="http://www3.dasoertliche.de/Controller?book=876&amp;zvo_ok=1&amp;ciid=&amp;district=&amp;quarter=&amp;kgs=&amp;buab=&amp;plz=&amp;zbuab=&amp;quarterfilter=&amp;form_name=search_inv&amp;buc=876&amp;kgs=&amp;buab=&amp;zbuab=&amp;page=5&amp;context=4&amp;action=43&amp;ph=${telnr}&amp;image=Finden" requestfields="Header" requestvalue="User-Agent:Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36" encoding="utf-8">
+      <set id="09555685874074697" name="field" value="/&lt;a[^&gt;]*class=&quot;hitlnk_name[^&gt;]*&gt;\s*(.*?)\s*&lt;/a&gt;/">
         <set id="09865207627881318" name="title" value="Name" />
         <set id="006037884042598307" name="#strip html" value="/&lt;[^&gt;]*&gt;/" decode="RegexReplace">
           <set id="06301745900418609" name="value" value="/(.+)/" decode="XML" />
@@ -20,7 +20,9 @@
       <set id="08467272333800793" name="field" value="/&lt;address&gt;(.*?)&lt;/address&gt;/">
         <set id="05736345457844436" name="title" value="Anschrift" />
         <set id="045151069411076605" name="#strip html" value="/&lt;[^&gt;]*&gt;/" decode="RegexReplace">
-          <set id="06674937077332288" name="value" value="/\s*(.+)\s*/" decode="XML" />
+          <set id="018917823559055647" name="#whitespace" value="/\s+/" decode="RegexReplace" formatstring=" ">
+            <set id="06674937077332288" name="value" value="/\s*(.+)\s*/" decode="XML" />
+          </set>
         </set>
         <set id="029633529717102647" name="stitle" value="address" />
       </set>

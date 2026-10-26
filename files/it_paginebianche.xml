@@ -2,7 +2,7 @@
   <meta>
     <name>PagineBianche.it</name>
     <country>IT</country>
-    <revision>2</revision>
+    <revision>3</revision>
     <description>Italian telephone directory.
 Rev 2: Number search fix</description>
     <icon>http://phonehook.omnight.com/logos/it_pagine_bianche.png</icon>
@@ -10,26 +10,24 @@ Rev 2: Number search fix</description>
     <link>http://www.paginebianche.it/</link>
   </meta>
   <set id="root" name="lookup" tags="lookup">
-    <set id="02560286133084446" name="#lookup" url="http://www.paginebianche.it/ricerca-da-numero?qs=${telnr}">
-      <set id="029087406885810196" name="#result" value="/&lt;div class=&quot;item (.*?)(?=&lt;div class=&quot;item |&lt;form)/">
-        <set id="034546176064759493" name="field" value="/&lt;h2[^&gt;]*&gt;\s*&lt;a[^&gt;]*&gt;\s*(.*?)\s*&lt;/a&gt;/">
+    <set id="02560286133084446" name="#lookup" url="https://www.paginebianche.it/cerca-da-numero?qs=${telnr}" requestfields="Header" requestvalue="User-Agent:Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36&#xA;Accept:text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8&#xA;Accept-Language:it-IT,it;q=0.9,en;q=0.5" encoding="utf-8">
+      <set id="029087406885810196" name="#result" value="/class=&quot;search-itm card-listing(.*?)(?=class=&quot;search-itm card-listing|$)/" resultrange="0">
+        <set id="034546176064759493" name="field" value="/&lt;h2[^&gt;]*search-itm__rag[^&gt;]*&gt;\s*(.*?)\s*&lt;/h2&gt;/">
           <set id="07055170005187392" name="title" value="Name" />
           <set id="06415173562709242" name="#value" value="/&lt;[^&gt;]*&gt;/" decode="RegexReplace">
-            <set id="035688595520332456" name="value" value="/(.+)/" />
+            <set id="035688595520332456" name="value" value="/(.+)/" decode="XML" />
           </set>
           <set id="06805767784826458" name="stitle" value="name" />
         </set>
-        <set id="06063345449510962" name="field" value="/&lt;span class=&quot;insegna capitalize&quot;&gt;\s*([^&lt;]+?)\s*&lt;/span&gt;/">
+        <set id="06063345449510962" name="field" value="/&lt;div class=&quot;search-itm__category&quot;[^&gt;]*&gt;\s*([^&lt;]+?)\s*&lt;/div&gt;/">
           <set id="010624443413689733" name="title" value="Category" />
-          <set id="05241736234165728" name="value" value="/(.+)/" />
+          <set id="05241736234165728" name="value" value="/(.+)/" decode="XML" />
           <set id="09696283417288214" name="stitle" value="category" />
         </set>
-        <set id="08129206467419863" name="field" value="/&lt;div id=&quot;addr_[^&gt;]*&gt;(.*?)&lt;/div&gt;/">
+        <set id="08129206467419863" name="field" value="/&lt;div class=&quot;search-itm__adr&quot;[^&gt;]*&gt;.*?&lt;div\s*&gt;\s*(.*?)\s*&lt;/div&gt;/">
           <set id="09473300911486149" name="title" value="Address" />
-          <set id="08808762231964031" name="#remove_hidden" value="/&lt;div[^&gt;]*style=&quot;display: none.*/" decode="RegexReplace">
-            <set id="05233296165242791" name="#value" value="/&lt;[^&gt;]*&gt;/" decode="RegexReplace">
-              <set id="0637817389331758" name="value" value="/(.+)/" />
-            </set>
+          <set id="05233296165242791" name="#value" value="/&lt;[^&gt;]*&gt;/" decode="RegexReplace">
+            <set id="0637817389331758" name="value" value="/(.+)/" decode="XML" />
           </set>
           <set id="0431348200654611" name="stitle" value="address" />
         </set>

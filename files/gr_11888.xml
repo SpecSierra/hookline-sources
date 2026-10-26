@@ -2,25 +2,23 @@
   <meta>
     <name>11888.gr</name>
     <country>GR</country>
-    <revision>2</revision>
+    <revision>3</revision>
     <minversion>5</minversion>
     <description>Greek online phonebook and lookup</description>
     <icon>http://phonehook.omnight.com/logos/11888.png</icon>
     <link>http://www.11888.gr/</link>
   </meta>
   <set id="root" name="lookup" tags="lookup">
-    <set id="00828012484125793" name="#load" url="http://www.11888.gr/list-names?_wpType=number&amp;_wpPhone=${telnr}" encoding="utf-8">
-      <set id="08003798089921474" name="#result" value="/&lt;li data-index(.*?)&lt;/li&gt;/">
-        <set id="06805852199904621" name="field" value="/&lt;span class=&quot;title&quot;&gt;(.*?)&lt;/span&gt;/" decode="XML">
-          <set id="09425465010572225" name="title" value="Name" />
-          <set id="010049696615897119" name="value" value="/(.+)/" />
-          <set id="09075334491208196" name="stitle" value="name" />
-        </set>
-        <set id="01730745113454759" name="field" value="/&lt;div class=&quot;address&quot;&gt;(.*?)&lt;/div&gt;/" decode="XML">
-          <set id="03929541604593396" name="title" value="Address" />
-          <set id="08339874274097383" name="value" value="/(.+)/" />
-          <set id="08988121983129531" name="stitle" value="address" />
-        </set>
+    <set id="00828012484125793" name="#load" url="https://www.11888.gr/antistrofh-anazhthsh-me-arithmo-thlefwnou/?phone_number=${telnr}" encoding="utf-8">
+      <set id="06805852199904621" name="field" value="/&lt;span class=&quot;tw-text-gray-main sm:tw-hidden[^&quot;]*&quot;&gt;\s*(.*?)\s*&lt;/span&gt;/" decode="XML" resultrange="0">
+        <set id="09425465010572225" name="title" value="Name" />
+        <set id="010049696615897119" name="value" value="/(.+)/" />
+        <set id="09075334491208196" name="stitle" value="name" />
+      </set>
+      <set id="01730745113454759" name="field" value="/aria-labelledby=&quot;address-icon&quot;.*?&lt;span[^&gt;]*&gt;\s*(.*?)\s*&lt;/span&gt;/" decode="XML" resultrange="0">
+        <set id="03929541604593396" name="title" value="Address" />
+        <set id="08339874274097383" name="value" value="/(.+)/" />
+        <set id="08988121983129531" name="stitle" value="address" />
       </set>
     </set>
   </set>

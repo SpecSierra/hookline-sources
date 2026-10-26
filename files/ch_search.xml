@@ -2,7 +2,7 @@
   <meta>
     <name>tel.search.ch</name>
     <country>CH</country>
-    <revision>3</revision>
+    <revision>4</revision>
     <description>Online phonebook</description>
     <icon>http://android.search.ch/images/android/icon.png</icon>
     <link>http://tel.search.ch/</link>
@@ -23,6 +23,25 @@
         <set id="02574653073679656" name="title" value="Address" />
         <set id="003745695645920932" name="value" value="/&lt;[^&gt;]*&gt;/" decode="RegexReplace" />
         <set id="0749779793433845" name="stitle" value="address" />
+      </set>
+    </set>
+    <set id="08051996168214829" name="#entry" value="/&lt;article class=&quot;tel-resultentry[^&quot;]*&quot;&gt;(.*?)&lt;/article&gt;/" resultrange="0">
+      <set id="07930043158121408" name="field" value="/&lt;h1&gt;\s*&lt;a[^&gt;]*&gt;(.*?)&lt;/a&gt;/" decode="XML">
+        <set id="09983090269379319" name="title" value="Name" />
+        <set id="06802826311904938" name="value" value="/(.+)/" />
+        <set id="032842248817905785" name="stitle" value="name" />
+      </set>
+      <set id="07697933749295772" name="field" value="/&lt;div class=&quot;tel-categories&quot;&gt;(.*?)&lt;/div&gt;/" decode="XML">
+        <set id="05125638039316983" name="title" value="Category" />
+        <set id="063221879536287" name="value" value="/(.+)/" />
+        <set id="0323619730072097" name="stitle" value="category" />
+      </set>
+      <set id="002086475118994714" name="field" value="/&lt;div class=&quot;tel-address&quot;&gt;(.*?)&lt;/div&gt;/" resultrange="0">
+        <set id="02574653073679657" name="title" value="Address" />
+        <set id="003745695645920933" name="#strip html" value="/&lt;[^&gt;]*&gt;/" decode="RegexReplace">
+          <set id="003745695645920934" name="value" value="/(.+)/" decode="XML" />
+        </set>
+        <set id="0749779793433846" name="stitle" value="address" />
       </set>
     </set>
   </set>

@@ -2,7 +2,7 @@
   <meta>
     <name>1881.no</name>
     <country>NO</country>
-    <revision>3</revision>
+    <revision>4</revision>
     <minversion>4</minversion>
     <description>Norwegian lookup and search
 Rev 3: Site update
@@ -12,16 +12,34 @@ Rev 3: Site update
   </meta>
   <set id="root" name="lookup" tags="lookup">
     <set id="009999765782290204" name="#load" url="http://www.1881.no/?query=${telnr}">
-      <set id="0030341790409376346" name="field" value="/&lt;meta property=&quot;og:title&quot; content=&quot;(.*?)&quot;/" decode="XML">
-        <set id="010724296969245994" name="stitle" value="name" />
-        <set id="06066502444273367" name="title" value="Name" />
-        <set id="027979630662729615" name="value" value="/(.+)/" />
+      <set id="05171823190264511" name="#listing" value="/&lt;div class=&quot;box listing listing--[a-z]+[^&quot;]*&quot;&gt;(.*?)class=&quot;listing__aside&quot;/" resultrange="0">
+        <set id="05171823190264512" name="field" value="/&lt;h2 class=&quot;listing-name&quot;&gt;\s*&lt;a[^&gt;]*&gt;\s*(.*?)\s*&lt;/a&gt;/" decode="XML">
+          <set id="05171823190264513" name="stitle" value="name" />
+          <set id="05171823190264514" name="title" value="Name" />
+          <set id="05171823190264515" name="value" value="/(.+)/" />
+        </set>
+        <set id="05171823190264516" name="field" value="/&lt;p class=&quot;listing-address&quot;&gt;(.*?)&lt;/p&gt;/">
+          <set id="05171823190264517" name="stitle" value="address" />
+          <set id="05171823190264518" name="title" value="Address" />
+          <set id="05171823190264519" name="#strip html" value="/&lt;[^&gt;]*&gt;/" decode="RegexReplace">
+            <set id="05171823190264520" name="#whitespace" value="/\s+/" decode="RegexReplace" formatstring=" ">
+              <set id="05171823190264521" name="value" value="/\s*(.+?)\s*$/" decode="XML" />
+            </set>
+          </set>
+        </set>
       </set>
-      <set id="012107471982463314" name="field" value="/&lt;p class=&quot;details__address&quot;&gt;\s*&lt;a[^&gt;]*&gt;(.*?)&lt;/a&gt;/" decode="XML">
-        <set id="0381606800909311" name="stitle" value="address" />
-        <set id="046390287394880314" name="title" value="Address" />
-        <set id="06681203954321775" name="#remove-map" value="/&lt;span class=&quot;details__map-link&quot;&gt;.*?&lt;/span&gt;/" decode="RegexReplace">
-          <set id="024104173347360813" name="value" value="/^\s*|&lt;[^&gt;]*&gt;|\s*$|^\n+&#xA;\s+/" decode="RegexMultiReplace" formatstring="&#xA; " />
+      <set id="05171823190264522" name="#detailpage" value="/^(.*class=&quot;details__address&quot;.*)$/" resultrange="0">
+        <set id="0030341790409376346" name="field" value="/&lt;meta property=&quot;og:title&quot; content=&quot;(.*?)&quot;/" decode="XML">
+          <set id="010724296969245994" name="stitle" value="name" />
+          <set id="06066502444273367" name="title" value="Name" />
+          <set id="027979630662729615" name="value" value="/(.+)/" />
+        </set>
+        <set id="012107471982463314" name="field" value="/&lt;p class=&quot;details__address&quot;&gt;\s*&lt;a[^&gt;]*&gt;(.*?)&lt;/a&gt;/" decode="XML">
+          <set id="0381606800909311" name="stitle" value="address" />
+          <set id="046390287394880314" name="title" value="Address" />
+          <set id="06681203954321775" name="#remove-map" value="/&lt;span class=&quot;details__map-link&quot;&gt;.*?&lt;/span&gt;/" decode="RegexReplace">
+            <set id="024104173347360813" name="value" value="/^\s*|&lt;[^&gt;]*&gt;|\s*$|^\n+&#xA;\s+/" decode="RegexMultiReplace" formatstring="&#xA; " />
+          </set>
         </set>
       </set>
     </set>

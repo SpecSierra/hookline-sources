@@ -2,7 +2,7 @@
   <meta>
     <name>ChiStaChiamando.it</name>
     <country>IT</country>
-    <revision>2</revision>
+    <revision>3</revision>
     <minversion>9</minversion>
     <description>Spam block</description>
     <icon>https://www.chistachiamando.it/media/8/positive_score_icon.png</icon>
@@ -11,7 +11,9 @@
   <set id="root" name="result" tags="lookup,block">
     <set id="06728823260939907" name="#check-nr" url="http://www.chistachiamando.it/numero-telefono/${telnr}">
       <set id="02743351825710094" name="#description" value="/&lt;div class=&quot;description[^&quot;]*&quot;&gt;(.*?)&lt;/div&gt;/">
-        <set id="01939344345766234" name="block" value="/(negativa)/" resultrange="0" decode="FormatString" formatstring="true" />
+        <set id="01939344345766235" name="#verdict" value="/(.+)/" resultrange="0" decode="Script" formatstring="function f(a) {&#xA;var p = /(\d+)x\s*positiv/i.exec(a);&#xA;var n = /(\d+)x\s*negativ/i.exec(a);&#xA;var pc = p ? parseInt(p[1], 10) : 0;&#xA;var nc = n ? parseInt(n[1], 10) : 0;&#xA;return (nc &gt;= 2 &amp;&amp; nc &gt; pc) ? 'spam' : '';&#xA;}">
+          <set id="01939344345766234" name="block" value="/^(spam)$/" decode="FormatString" formatstring="true" />
+        </set>
         <set id="09494758202246683" name="field">
           <set id="09121779012460827" name="title" value="Comment" />
           <set id="009985853535827682" name="stitle" value="comment" />

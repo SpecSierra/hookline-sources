@@ -2,28 +2,24 @@
   <meta>
     <name>Hitta.se</name>
     <country>SE</country>
-    <revision>9</revision>
+    <revision>10</revision>
     <minversion>5</minversion>
     <description>Name and address</description>
     <icon>http://www.hitta.se/static/img/logos/hitta.se-210x210.png</icon>
     <link>http://www.hitta.se/</link>
   </meta>
   <set id="root" name="number_search" url="http://www.hitta.se/s%C3%B6k?vad=${telnr}" requestfields="Header" requestvalue="Referer:http://www.hitta.se/&#xA;User-Agent:Mozilla/5.0 (Linux; Android 4.2.1; en-us; Nexus 4 Build/JOP40D) AppleWebKit/535.19 (KHTML, like Gecko) Chrome/18.0.1025.166 Mobile Safari/535.19" tags="lookup">
-    <set id="09653552274685353" name="field" value="/&lt;h1[^&gt;]*itemprop=&quot;name&quot;[^&gt;]*&gt;(.*?)&lt;/h1&gt;/" decode="XML" resultrange="0">
-      <set id="07329683152493089" name="title" value="Name" />
-      <set id="05297679875511676" name="value" value="/(.+)/" formatstring="function f(a) {&#xA;return a;&#xA;}" decode="Script" />
-      <set id="09632847676984966" name="stitle" value="name" />
-    </set>
-    <set id="041087536071427166" name="field" value="/&lt;address[^&gt;]*&gt;(.*?)&lt;\/address&gt;/" decode="XML">
-      <set id="08577135917730629" name="title" value="Address" />
-      <set id="0845082618866476" name="#br" value="/&lt;h2[^&gt;]*heading--subtle.*?&lt;/h2&gt;&#xA;&lt;br/?&gt;/" decode="RegexMultiReplace" formatstring="&#xA;, ">
-        <set id="003758557396940887" name="#value" value="/&lt;.*?&gt;/" decode="RegexReplace" formatstring="&#xA;">
-          <set id="03777313558384776" name="#value" value="/(^\s+|\n+)/" decode="RegexReplace">
-            <set id="05071027660742402" name="value" value="/( )\s*/" decode="RegexReplace" formatstring=" " />
-          </set>
-        </set>
+    <set id="09653552274685354" name="#firstItem" value="/&quot;itemListElement&quot;:\[\{&quot;item&quot;:\{(.*?)\},&quot;@type&quot;:&quot;ListItem&quot;/" resultrange="0">
+      <set id="09653552274685353" name="field" value="/&quot;name&quot;:&quot;((?:[^&quot;\\]|\\.)*)&quot;/" resultrange="0">
+        <set id="07329683152493089" name="title" value="Name" />
+        <set id="05297679875511676" name="value" value="/(.+)/" decode="JSON" />
+        <set id="09632847676984966" name="stitle" value="name" />
       </set>
-      <set id="09843665335793048" name="stitle" value="address" />
+      <set id="041087536071427166" name="field" value="/&quot;streetAddress&quot;:&quot;((?:[^&quot;\\]|\\.)*)&quot;,&quot;addressLocality&quot;:&quot;((?:[^&quot;\\]|\\.)*)&quot;/" decode="FormatString" formatstring="{0}, {1}" resultrange="0">
+        <set id="08577135917730629" name="title" value="Address" />
+        <set id="05071027660742402" name="value" value="/(.+)/" decode="JSON" />
+        <set id="09843665335793048" name="stitle" value="address" />
+      </set>
     </set>
   </set>
   <set id="08188618205022067" name="name_search" tags="person_search,business_search">
