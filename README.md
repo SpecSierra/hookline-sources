@@ -1,10 +1,20 @@
-# phonehook-sources
+# hookline-sources
 
-This is a repository that is used for storing the XML-definitions of the sources used by Phonehook.
-If you have an problem with a source (e.g. results not showing correctly) you can create an issue here.
+Block lists for [Hookline](https://github.com/SpecSierra/hookline), the Sailfish OS 5 call blocker.
 
-For bugs/suggestions for the app, please create issues in the respective repositories:
+## Lists
 
-Sailfish - https://github.com/omnight/phonehook
+- **Index:** [`blocklists/index.json`](blocklists/index.json), read by the app every day.
+- **Defaults:** each list is on by default in its own country.
 
-Android - https://github.com/omnight/phonehook-android
+## Add a list
+
+- **Index entry:** `id`, `country`, `name`, `description`, `license`, `attribution`, `attribution_url`
+- **Number format:** `country_code`, `trunk_prefix` (national form, e.g. `0`)
+- **`urls`:** JSON lines files, one `{"name": "…", "pattern": "34400######"}` per line, each `#` = any digit
+- **Sources:** official ones (a regulator or a law) or openly licensed lists only
+
+## Old lookup robots
+
+- **Where:** `files/`, the Phonehook website lookup robots, no longer used by Hookline.
+- **Origin:** [omnight/phonehook-sources](https://github.com/omnight/phonehook-sources).

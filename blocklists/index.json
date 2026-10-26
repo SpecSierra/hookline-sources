@@ -26,7 +26,7 @@
     "country_code": "34",
     "trunk_prefix": "",
     "urls": [
-      "https://raw.githubusercontent.com/SpecSierra/phonehook-sources/master/blocklists/es-telemarketing.jsonl"
+      "https://raw.githubusercontent.com/SpecSierra/hookline-sources/master/blocklists/es-telemarketing.jsonl"
     ]
   },
   {
@@ -40,7 +40,7 @@
     "country_code": "421",
     "trunk_prefix": "0",
     "urls": [
-      "https://raw.githubusercontent.com/SpecSierra/phonehook-sources/master/blocklists/sk-telemarketing.jsonl"
+      "https://raw.githubusercontent.com/SpecSierra/hookline-sources/master/blocklists/sk-telemarketing.jsonl"
     ]
   },
   {
@@ -54,7 +54,7 @@
     "country_code": "39",
     "trunk_prefix": "",
     "urls": [
-      "https://raw.githubusercontent.com/SpecSierra/phonehook-sources/master/blocklists/it-telemarketing.jsonl"
+      "https://raw.githubusercontent.com/SpecSierra/hookline-sources/master/blocklists/it-telemarketing.jsonl"
     ]
   },
   {
@@ -68,7 +68,7 @@
     "country_code": "56",
     "trunk_prefix": "",
     "urls": [
-      "https://raw.githubusercontent.com/SpecSierra/phonehook-sources/master/blocklists/cl-telemarketing.jsonl"
+      "https://raw.githubusercontent.com/SpecSierra/hookline-sources/master/blocklists/cl-telemarketing.jsonl"
     ]
   },
   {
@@ -82,7 +82,7 @@
     "country_code": "91",
     "trunk_prefix": "",
     "urls": [
-      "https://raw.githubusercontent.com/SpecSierra/phonehook-sources/master/blocklists/in-telemarketing.jsonl"
+      "https://raw.githubusercontent.com/SpecSierra/hookline-sources/master/blocklists/in-telemarketing.jsonl"
     ]
   }
 ]
