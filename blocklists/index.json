@@ -84,5 +84,19 @@
     "urls": [
       "https://raw.githubusercontent.com/SpecSierra/hookline-sources/master/blocklists/in-telemarketing.jsonl"
     ]
+  },
+  {
+    "id": "pl-dno",
+    "country": "PL",
+    "name": "Polish numbers that never call (UKE)",
+    "description": "Numbers registered with the regulator as receive-only, such as bank and public hotlines. A call showing one of them is spoofed.",
+    "attribution": "UKE",
+    "attribution_url": "https://numeracja.uke.gov.pl/pl/orvc_tables",
+    "license": "Public register",
+    "country_code": "48",
+    "trunk_prefix": "",
+    "urls": [
+      "https://raw.githubusercontent.com/SpecSierra/hookline-sources/master/blocklists/pl-dno.jsonl"
+    ]
   }
 ]
