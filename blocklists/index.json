@@ -1,0 +1,18 @@
+[
+  {
+    "id": "fr-saracroche",
+    "country": "FR",
+    "name": "French telemarketing and spam",
+    "description": "Telemarketing prefixes set by ARCEP, the operator ranges and the numbers most reported by the Saracroche community.",
+    "attribution": "Saracroche",
+    "attribution_url": "https://saracroche.org",
+    "license": "CC BY-NC-SA 4.0",
+    "country_code": "33",
+    "trunk_prefix": "0",
+    "urls": [
+      "https://app.saracroche.org/storage/fr-arcep-block.jsonl",
+      "https://app.saracroche.org/storage/fr-operators-block.jsonl",
+      "https://app.saracroche.org/storage/fr-collaborative-block.jsonl"
+    ]
+  }
+]
